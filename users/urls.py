@@ -5,9 +5,8 @@ from . import views
 
 app_name = "users"
 
-router = routers.DefaultRouter()
-router.register('users', views.UserViewSet)
 
 urlpatterns = [
-    path("users", include(router.urls))
+    path("login/", views.LoginApiView, name="login"),
+    path("logout/", views.LogoutApiView, name="logout")
 ]

@@ -4,11 +4,27 @@ from core import models as core_model
 # Create your models here.
 
 
+class Comment(core_model.Core):
+
+    user = models.ForeignKey("users.User", on_delete=models.CASCADE)
+    post = models.ForeignKey(
+        "Post", related_name="commnets", on_delete=models.CASCADE)
+    contents = models.TextField(blank=False)
+    visibility = models.BooleanField(default="N")
+
+    def __str__(self):
+        return str(f"{self.post.title}_{self.pk}")
+
+
 class Post(core_model.Core):
 
     title = models.CharField(max_length=300, blank=True, null=True)
     writer = models.ForeignKey("users.User", on_delete=models.CASCADE)
-    Contents = models.TextField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return str(self.pk)
+
+    def get_comment_count(self):
+        comments = Comment.objects.filter(post=self)
+        return comments.count()

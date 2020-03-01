@@ -3,11 +3,7 @@ from . import models as post_model
 
 
 class PostSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = post_model.Post
-        fields = (
-            "id",
-            "title",
-            "writer",
-            "Contents",
-        )
+        fields = '__all__'
