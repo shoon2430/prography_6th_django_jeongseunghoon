@@ -14,6 +14,11 @@ djangorestframework = "*"
 markdown = "*"
 django-filter = "*"
 httpie = "*"
+gunicorn = "*"
+dj-database-url = "*"
+psycopg2-binary = "*"
+whitenoise = "*"
+pipenv-to-requirements = "*"
 
 [requires]
 python_version = "3.7"
