@@ -59,9 +59,9 @@ DJANGO_APPS = [
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 
-# THIRD_PARTY_MIDDLEWARE = ['whitenoise.middleware.WhiteNoiseMiddleware', ]
+THIRD_PARTY_MIDDLEWARE = ['whitenoise.middleware.WhiteNoiseMiddleware', ]
 
-MIDDLEWARE = [
+DJANGO_MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -71,7 +71,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# MIDDLEWARE = THIRD_PARTY_MIDDLEWARE + DJANGO_MIDDLEWARE
+MIDDLEWARE = THIRD_PARTY_MIDDLEWARE + DJANGO_MIDDLEWARE
 
 
 ROOT_URLCONF = 'config.urls'
