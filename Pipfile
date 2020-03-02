@@ -19,6 +19,7 @@ dj-database-url = "*"
 psycopg2-binary = "*"
 whitenoise = "*"
 pipenv-to-requirements = "*"
+django-heroku = "*"
 
 [requires]
 python_version = "3.7"
