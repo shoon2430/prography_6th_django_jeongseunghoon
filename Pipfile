@@ -13,6 +13,7 @@ flake8 = "*"
 djangorestframework = "*"
 markdown = "*"
 django-filter = "*"
+httpie = "*"
 
 [requires]
 python_version = "3.7"

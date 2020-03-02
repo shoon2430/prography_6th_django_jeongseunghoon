@@ -1,7 +1,7 @@
 from rest_framework.pagination import PageNumberPagination
 
 
-PAGE_SIZE = 2
+PAGE_SIZE = 3
 
 
 class PostsPagination(PageNumberPagination):

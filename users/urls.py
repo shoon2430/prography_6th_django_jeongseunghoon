@@ -4,9 +4,8 @@ from rest_framework import routers
 from . import views
 
 app_name = "users"
-
-
 urlpatterns = [
-    path("login/", views.LoginApiView, name="login"),
-    path("logout/", views.LogoutApiView, name="logout")
+    path("", views.UserList.as_view()),
+    path('<int:pk>/', views.UserDetail.as_view()),
+    path('api-auth/', include('rest_framework.urls')),
 ]
