@@ -2,27 +2,18 @@
 name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-PIPENV_INSTALL_TIMEOUT=9000
 
 [dev-packages]
-pylint = "*"
-autopep8 = "*"
 
 [packages]
-pathspec = "==0.5.9"
 django = "==3.0.3"
-flake8 = "*"
-djangorestframework = "*"
-markdown = "*"
-django-filter = "*"
-httpie = "*"
-gunicorn = "*"
 dj-database-url = "*"
-psycopg2-binary = "*"
-whitenoise = "*"
+djangorestframework = "*"
+gunicorn = "*"
+markdown = "*"
 pipenv-to-requirements = "*"
-django-heroku = "*"
-awsebcli = "*"
+psycopg2 = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.7"
