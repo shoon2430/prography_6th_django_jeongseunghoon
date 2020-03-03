@@ -1,0 +1,26 @@
+################################################################################
+# This requirements file has been automatically generated from `Pipfile` with
+# `pipenv-to-requirements`
+#
+#
+# This has been done to maintain backward compatibility with tools and services
+# that do not support `Pipfile` yet.
+#
+# Do NOT edit it directly, use `pipenv install [-d]` to modify `Pipfile` and
+# `Pipfile.lock` and then regenerate `requirements*.txt`.
+################################################################################
+
+dj-database-url
+django-allauth
+django-heroku
+django-rest-auth
+django==3.0.3
+djangorestframework
+djangorestframework-jwt
+drf-yasg
+flex
+gunicorn
+markdown
+pipenv-to-requirements
+psycopg2
+whitenoise
