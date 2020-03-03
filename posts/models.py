@@ -20,14 +20,6 @@ class Comment(core_model.Core):
 
 class Post(core_model.Core):
 
-    CATEGORY_NOTICE = "notice"
-    CATEGORY_QA ="qa"
-    CATEGORY_COMMUNITY ="community"
-
-
-    # CATEGORY_LIST
-
-    # category = models.CharField()
     title = models.CharField(max_length=300, blank=True, null=True)
     writer = models.ForeignKey(
         "users.User", related_name="posts", on_delete=models.CASCADE
