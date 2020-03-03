@@ -10,6 +10,7 @@
 # `Pipfile.lock` and then regenerate `requirements*.txt`.
 ################################################################################
 
+django-heroku
 dj-database-url
 django==3.0.3
 djangorestframework
