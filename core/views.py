@@ -1,6 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import redirect
 
 
-
-class HomeView():
-    pass
+def home(request):
+    return redirect("api/posts/")

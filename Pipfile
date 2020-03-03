@@ -2,12 +2,14 @@
 name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
+PIPENV_INSTALL_TIMEOUT=9000
 
 [dev-packages]
 pylint = "*"
 autopep8 = "*"
 
 [packages]
+pathspec = "==0.5.9"
 django = "==3.0.3"
 flake8 = "*"
 djangorestframework = "*"
@@ -20,6 +22,7 @@ psycopg2-binary = "*"
 whitenoise = "*"
 pipenv-to-requirements = "*"
 django-heroku = "*"
+awsebcli = "*"
 
 [requires]
 python_version = "3.7"

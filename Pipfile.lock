@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1cde616e449e7dd992d5d87aefdd6ebe8008e0a91681e1e7d19d4859b8f32170"
+            "sha256": "a5dbe51b5a0afed161c82c877596370bd71fb660d4dfeeb5add5bc1d8469c8eb"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -9,6 +9,7 @@
         },
         "sources": [
             {
+                "PIPENV_INSTALL_TIMEOUT": 9000,
                 "name": "pypi",
                 "url": "https://pypi.org/simple",
                 "verify_ssl": true
@@ -165,6 +166,13 @@
                 "sha256:dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"
             ],
             "version": "==0.6.1"
+        },
+        "pathspec": {
+            "hashes": [
+                "sha256:54a5eab895d89f342b52ba2bffe70930ef9f8d96e398cccf530d21fa0516a873"
+            ],
+            "index": "pypi",
+            "version": "==0.5.9"
         },
         "pbr": {
             "hashes": [
