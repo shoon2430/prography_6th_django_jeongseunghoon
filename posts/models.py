@@ -7,8 +7,7 @@ from core import models as core_model
 class Comment(core_model.Core):
 
     user = models.ForeignKey("users.User", on_delete=models.CASCADE)
-    post = models.ForeignKey(
-        "Post", related_name="comments", on_delete=models.CASCADE)
+    post = models.ForeignKey("Post", related_name="comments", on_delete=models.CASCADE)
     contents = models.TextField(blank=False)
     visibility = models.BooleanField(default="N")
 
@@ -21,9 +20,18 @@ class Comment(core_model.Core):
 
 class Post(core_model.Core):
 
+    CATEGORY_NOTICE = "notice"
+    CATEGORY_QA ="qa"
+    CATEGORY_COMMUNITY ="community"
+
+
+    # CATEGORY_LIST
+
+    # category = models.CharField()
     title = models.CharField(max_length=300, blank=True, null=True)
     writer = models.ForeignKey(
-        "users.User", related_name="posts", on_delete=models.CASCADE)
+        "users.User", related_name="posts", on_delete=models.CASCADE
+    )
     description = models.TextField(blank=True, null=True)
 
     class Meta:

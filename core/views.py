@@ -2,4 +2,4 @@ from django.shortcuts import redirect
 
 
 def home(request):
-    return redirect("api/posts/")
+    return redirect("doc/v1")

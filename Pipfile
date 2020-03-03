@@ -4,10 +4,12 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-black = "*"
 flake8 = "*"
+black = "*"
 
 [packages]
+django-rest-auth = "*"
+django-allauth = "*"
 django = "==3.0.3"
 dj-database-url = "*"
 djangorestframework = "*"
@@ -17,6 +19,9 @@ pipenv-to-requirements = "*"
 psycopg2 = "*"
 whitenoise = "*"
 django-heroku = "*"
+drf-yasg = "*"
+flex = "*"
+djangorestframework-jwt = "*"
 
 [requires]
 python_version = "3.7"
