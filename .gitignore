@@ -132,6 +132,5 @@ dmypy.json
 .pyre/
 
 # pytype static type an
-local_settings.py 
-db.sqlite3 
-media
+
+.secrets/

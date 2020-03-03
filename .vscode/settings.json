@@ -1,3 +1,7 @@
 {
-    "python.pythonPath": "C:\\Users\\jeongseunghoon\\.virtualenvs\\prography-MsIODV-W\\Scripts\\python.exe"
+    "python.pythonPath": "C:\\Users\\jeongseunghoon\\.virtualenvs\\prography-MsIODV-W\\Scripts\\python.exe",
+    "python.formatting.provider": "black",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true
 }
