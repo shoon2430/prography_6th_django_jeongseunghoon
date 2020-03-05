@@ -26,12 +26,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-chars = (
-    "".join([string.ascii_letters, string.digits, string.punctuation])
-    .replace("'", "")
-    .replace('"', "")
-)
-SECRET_KEY = "".join([random.SystemRandom().choice(chars) for i in range(50)])
+# chars = (
+#     "".join([string.ascii_letters, string.digits, string.punctuation])
+#     .replace("'", "")
+#     .replace('"', "")
+# )
+# SECRET_KEY = "".join([random.SystemRandom().choice(chars) for i in range(50)])
 
 
 JWT_AUTH = {
