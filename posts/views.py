@@ -73,7 +73,7 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = (permissions.IsWriterOrReadOnly,)
+    permission_classes = ()
     authentication_classes = (JSONWebTokenAuthentication,)
 
 

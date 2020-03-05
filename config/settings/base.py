@@ -33,7 +33,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # )
 # SECRET_KEY = "".join([random.SystemRandom().choice(chars) for i in range(50)])
 
-SECRET_KEY = "%a#cfxg%v$)r6@nsc-93gg88c2!ooqp)^8)++hb#69tqxg59vj"
+SECRET_KEY = ""
 
 JWT_AUTH = {
     "JWT_SECRET_KEY": SECRET_KEY,
