@@ -26,6 +26,7 @@ class RegistrationAPI(generics.GenericAPIView):
     """
 
     serializer_class = CreateUserSerializer
+    permission_classes = ()
 
     def post(self, request, *args, **kwargs):
         if len(request.data["password"]) < 4:
@@ -60,7 +61,7 @@ class UserList(generics.ListCreateAPIView):
     authentication_classes = [
         JSONWebTokenAuthentication,
     ]
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = ()
 
     def get(self, request, *args, **kwargs):
         data = decode_jwt(request)
