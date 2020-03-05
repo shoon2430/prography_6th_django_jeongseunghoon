@@ -164,7 +164,7 @@ class PostCommentsDetail(generics.RetrieveUpdateDestroyAPIView):
             - visibility  : 공개여부
         """
 
-    queryset = Comments.objects.all()
+    queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = ()
     permission_classes = (permissions.IsWriterOrReadOnly,)
