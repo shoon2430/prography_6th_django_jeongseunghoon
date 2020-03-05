@@ -73,7 +73,7 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = (permissions.IsWriterOrReadOnly,)
+    permission_classes = (permissions.IsPostWriterOrReadOnly,)
     authentication_classes = (JSONWebTokenAuthentication,)
 
 
@@ -166,6 +166,11 @@ class PostCommentsDetail(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
-    permission_classes = ()
-    permission_classes = (permissions.IsWriterOrReadOnly,)
+    permission_classes = (permissions.IsCommentWriterOrReadOnly,)
     authentication_classes = (JSONWebTokenAuthentication,)
+
+    def get_object(self, queryset=None):
+
+        comment_id = self.request.parser_context["kwargs"]["comment_id"]
+        queryset = Comment.objects.get(id=comment_id)
+        return queryset

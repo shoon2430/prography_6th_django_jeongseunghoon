@@ -33,6 +33,7 @@ schema_url_v1_patterns = [
     path("token/", obtain_jwt_token),
     path("token/verify/", verify_jwt_token),
     path("token/refresh/", refresh_jwt_token),
+    path("registration/", user_views.RegistrationAPI.as_view()),
     path("api/v1", include("users.urls")),
     path("api/v1", include("posts.urls")),
 ]
