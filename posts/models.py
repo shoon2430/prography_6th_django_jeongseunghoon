@@ -1,8 +1,6 @@
 from django.db import models
 from core import models as core_model
 
-# Create your models here.
-
 
 class Comment(core_model.Core):
 
@@ -20,6 +18,21 @@ class Comment(core_model.Core):
 
 class Post(core_model.Core):
 
+    CATEGORY_NOTICE = "notice"
+    CATEGORY_DAILYLIFE = "dailylife"
+    CATEGORY_COMMUNITY = "community"
+    CATEGORY_QnA = "qa"
+
+    CATEGORY_LIST = (
+        (CATEGORY_NOTICE, "Notice"),
+        (CATEGORY_DAILYLIFE, "Dailylife"),
+        (CATEGORY_COMMUNITY, "Community"),
+        (CATEGORY_QnA, "Q&A"),
+    )
+
+    category = models.CharField(
+        choices=CATEGORY_LIST, default=CATEGORY_COMMUNITY, max_length=10
+    )
     title = models.CharField(max_length=300, blank=True, null=True)
     writer = models.ForeignKey(
         "users.User", related_name="posts", on_delete=models.CASCADE

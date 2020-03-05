@@ -22,6 +22,7 @@ django-heroku = "*"
 drf-yasg = "*"
 flex = "*"
 djangorestframework-jwt = "*"
+django-rest-knox = "*"
 
 [requires]
 python_version = "3.7"

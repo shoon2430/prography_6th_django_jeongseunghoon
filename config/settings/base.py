@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import string
+import random
+import datetime
 
 # Heroku: Update database configuration from $DATABASE_URL.
 
@@ -23,17 +26,23 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
+chars = (
+    "".join([string.ascii_letters, string.digits, string.punctuation])
+    .replace("'", "")
+    .replace('"', "")
+)
+SECRET_KEY = "".join([random.SystemRandom().choice(chars) for i in range(50)])
+
+
+JWT_AUTH = {
+    "JWT_SECRET_KEY": SECRET_KEY,
+    "JWT_ALGORITHM": "HS256",
+    "JWT_ALLOW_REFRESH": True,
+    "JWT_EXPIRATION_DELTA": datetime.timedelta(days=7),
+    "JWT_REFRESH_EXPIRATION_DELTA": datetime.timedelta(days=28),
+}
 
 SECRET_DIR = os.path.join(BASE_DIR, ".secrets")
-
-
-# SECURITY WARNING: don't run with debug turned on in production!
-
-# DEBUG = True
-
-# ALLOWED_HOSTS = []
-
-# Application definition
 
 
 PROJECT_APPS = [
@@ -49,6 +58,7 @@ THIRD_PARTY_APPS = [
     "drf_yasg",
     "allauth",
     "allauth.account",
+    "knox",
 ]
 
 
@@ -153,20 +163,15 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 AUTH_USER_MODEL = "users.User"
 
 REST_FRAMEWORK = {
-    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
-    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
-    # "DEFAULT_AUTHENTICATION_CLASSES": (
-    #     "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
-    # )
-    #     "rest_framework.authentication.BasicAuthentication",
-    #     "rest_framework.authentication.SessionAuthentication",
-    # ),
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
 }
 
 
-# REST_USE_JWT = True
+REST_USE_JWT = True
 
 ACCOUNT_EMAIL_REQUIRED = False
-# ACCOUNT_EMAIL_VERIFICATION = ""
-
+ACCOUNT_EMAIL_VERIFICATION = None
 ACCOUNT_LOGOUT_ON_GET = True

@@ -13,13 +13,14 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = (
-            'id',
-            'writer',
-            'title',
-            'description',
+            "id",
+            "writer",
+            "category",
+            "title",
+            "description",
             # 'comments',
-            'created',
-            'updated',
+            "created",
+            "updated",
         )
 
 
@@ -27,6 +28,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
     post = serializers.ReadOnlyField(source="post.title")
     post_id = serializers.ReadOnlyField(source="post.pk")
+    post_category = serializers.ReadOnlyField(source="post.category")
     user = serializers.ReadOnlyField(source="user.username")
 
     class Meta:
@@ -35,9 +37,10 @@ class CommentSerializer(serializers.ModelSerializer):
             "id",
             "post",
             "post_id",
+            "post_category",
             "user",
             "contents",
             "visibility",
-            'created',
-            'updated',
+            "created",
+            "updated",
         )

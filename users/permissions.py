@@ -1,11 +1,15 @@
 from rest_framework import permissions
+from rest_framework.response import Response
 from .models import User
+from .decode_jwt import decode_jwt
 
 
 class ManagerReadOnly(permissions.BasePermission):
     """
     유저 목록은 Manager권한을 가진 사용자만 조회 가능합니다.
     """
+
+    message = "Adding customersdsds222"
 
     def has_permission(self, request, view):
 
@@ -18,17 +22,22 @@ class ManagerReadOnly(permissions.BasePermission):
 
 class IsWriterOrReadOnly(permissions.BasePermission):
     """
-    유저 정보는 로그인후 자기자신만 수정가능합니다.
+    유저 정보는 로그인후 자기자신 또는 MANAGER만 조회/수정 가능합니다.
     """
 
     def has_permission(self, request, view):
+        data = decode_jwt(request)
+        if type(data) == Response:
+            return False
         try:
-            if request.user.is_anonymous:
+            jwt_user = data
+
+            if jwt_user.is_anonymous:
                 return False
 
-            pk = request.parser_context['kwargs']["pk"]
+            pk = request.parser_context["kwargs"]["pk"]
             user = User.objects.get(id=pk)
-            return request.user == user or request.user.authority == "manager"
+            return jwt_user == user or jwt_user.authority == "manager"
 
         except User.DoesNotExist:
             return False

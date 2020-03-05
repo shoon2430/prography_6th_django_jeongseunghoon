@@ -19,12 +19,22 @@ from django.conf.urls import url, include
 
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
+
 from rest_framework import permissions
+from rest_framework_jwt.views import (
+    obtain_jwt_token,
+    verify_jwt_token,
+    refresh_jwt_token,
+)
+
+from users import views as user_views
 
 schema_url_v1_patterns = [
+    path("token/", obtain_jwt_token),
+    path("token/verify/", verify_jwt_token),
+    path("token/refresh/", refresh_jwt_token),
     path("api/v1", include("users.urls")),
     path("api/v1", include("posts.urls")),
-    path("api-auth", include("rest_framework.urls")),
 ]
 
 schema_view = get_schema_view(
@@ -51,11 +61,13 @@ urlpatterns = [
         schema_view.with_ui("swagger", cache_timeout=0),
         name="schema-swagger-ui",
     ),
-    url("doc/v1", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
-    path("api/", include("rest_auth.urls")),
-    path("api/registration/", include("rest_auth.registration.urls")),
     path("", include("core.urls")),
-    path("admin", admin.site.urls),
-    path("api/v1", include("users.urls")),
-    path("api/v1", include("posts.urls")),
+    url("doc/v1", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
+    path("registration/", user_views.RegistrationAPI.as_view()),
+    path("token/", obtain_jwt_token),
+    path("token/verify/", verify_jwt_token),
+    path("token/refresh/", refresh_jwt_token),
+    path("admin/", admin.site.urls),
+    path("api/v1/", include("users.urls")),
+    path("api/v1/", include("posts.urls")),
 ]
