@@ -14,30 +14,31 @@ heroku : https://shoon2430.herokuapp.com/
    * 게시물 목록, 상세, 작성, 수정, 삭제에 사용자 권한을 추가로 적용
    * 실제 필요한 기능이라고 상상하고 필요한 것들은 가정하여 구현
    
-토큰(token_jwt)
-```
-token/          토큰 발급
-token/verify/   토큰 갱신
-token/refresh/  토큰 확인
-```
+* 토큰(token_jwt)
+  ```
+  token/          토큰 발급
+  token/verify/   토큰 갱신
+  token/refresh/  토큰 확인
+  ```
 
-사용자(user)
-```
-registration/      사용자등록(회원가입)
-api/v1/users/      사용자 조회 
-api/v1/users/{id}/ 사용자 상세 조회/수정/삭제
-api/v1/users/{id}/password/ 사용자 비밀번호 변경
-```
+* 사용자(user)
 
-게시물(post)
-```
-api/v1/posts/     게시물 조회/등록
-api/v1/posts/{id} 게시물 상세 조회/수정/삭제
-```
+  ```
+  registration/      사용자등록(회원가입)
+  api/v1/users/      사용자 조회 
+  api/v1/users/{id}/ 사용자 상세 조회/수정/삭제
+  api/v1/users/{id}/password/ 사용자 비밀번호 변경
+  ```
 
-댓글(comment)
-```
-api/v1/posts/comments/ 전체 댓글 조회
-api/v1/posts/{id}/comments/ 해당 게시물의 댓글 조회/등록
-api/v1/posts/{post_id}/comments/{comment_id}/ 게시물 상세 조회/수정/삭제
-```
+* 게시물(post)
+  ```
+  api/v1/posts/     게시물 조회/등록
+  api/v1/posts/{id} 게시물 상세 조회/수정/삭제
+  ```
+
+* 댓글(comment)
+  ```
+  api/v1/posts/comments/ 전체 댓글 조회
+  api/v1/posts/{id}/comments/ 해당 게시물의 댓글 조회/등록
+  api/v1/posts/{post_id}/comments/{comment_id}/ 게시물 상세 조회/수정/삭제
+  ```
