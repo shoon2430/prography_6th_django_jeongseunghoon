@@ -14,14 +14,13 @@ heroku : https://shoon2430.herokuapp.com/
    * 게시물 목록, 상세, 작성, 수정, 삭제에 사용자 권한을 추가로 적용
    * 실제 필요한 기능이라고 상상하고 필요한 것들은 가정하여 구현
    
-   
-  * 토큰(token_jwt)
-    ```
-    token/          토큰 발급
-    token/verify/   토큰 갱신
-    token/refresh/  토큰 확인
-    ```
-  * 모델 
+ * 모델
+    * 토큰(token_jwt)
+      ```
+      token/          토큰 발급
+      token/verify/   토큰 갱신
+      token/refresh/  토큰 확인
+      ``` 
     * 사용자(user)
       * 사용자는 user와 manager권한으로 구분합니다. 
       ```
