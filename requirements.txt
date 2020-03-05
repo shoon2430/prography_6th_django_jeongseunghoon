@@ -14,6 +14,7 @@ dj-database-url
 django-allauth
 django-heroku
 django-rest-auth
+django-rest-knox
 django==3.0.3
 djangorestframework
 djangorestframework-jwt
