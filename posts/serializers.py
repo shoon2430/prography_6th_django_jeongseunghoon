@@ -6,9 +6,6 @@ from users import serializers as user_serializers
 class PostSerializer(serializers.ModelSerializer):
 
     writer = serializers.ReadOnlyField(source="writer.username")
-    # comments = serializers.PrimaryKeyRelatedField(
-    #     many=True, queryset=Comment.objects.all()
-    # )
 
     class Meta:
         model = Post
@@ -18,7 +15,6 @@ class PostSerializer(serializers.ModelSerializer):
             "category",
             "title",
             "description",
-            # 'comments',
             "created",
             "updated",
         )

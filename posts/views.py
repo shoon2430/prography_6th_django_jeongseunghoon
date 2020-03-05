@@ -73,7 +73,7 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = ()
+    permission_classes = (permissions.IsWriterOrReadOnly,)
     authentication_classes = (JSONWebTokenAuthentication,)
 
 
@@ -151,3 +151,21 @@ class PostsComments(generics.ListCreateAPIView):
             return data
         request.user = data
         return self.create(request, *args, **kwargs)
+
+
+class PostCommentsDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+        댓글 수정/삭제
+
+        ---
+        # Parameters
+            - token       : 발급받은 토큰
+            - contents    : 내용
+            - visibility  : 공개여부
+        """
+
+    queryset = Comments.objects.all()
+    serializer_class = CommentSerializer
+    permission_classes = ()
+    permission_classes = (permissions.IsWriterOrReadOnly,)
+    authentication_classes = (JSONWebTokenAuthentication,)

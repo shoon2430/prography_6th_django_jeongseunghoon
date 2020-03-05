@@ -95,7 +95,7 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = ()
+    permission_classes = (user_permissions.IsWriterOrReadOnly,)
     authentication_classes = (JSONWebTokenAuthentication,)
 
 
