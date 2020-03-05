@@ -23,17 +23,21 @@ token/refresh/  토큰 확인
 
 사용자(user)
 ```
-registration/   사용자등록(회원가입)
-api/v1/users/
-api/v1/users/{id}/
-api/v1/users/{id}/password/
+registration/      사용자등록(회원가입)
+api/v1/users/      사용자 조회 
+api/v1/users/{id}/ 사용자 상세 조회/수정/삭제
+api/v1/users/{id}/password/ 사용자 비밀번호 변경
 ```
 
 게시물(post)
 ```
-api/v1/posts/
-api/v1/posts/{id}
-api/v1/posts/comments/
-api/v1/posts/{id}/comments/
-api/v1/posts/{post_id}/comments/{comment_id}/
+api/v1/posts/     게시물 조회/등록
+api/v1/posts/{id} 게시물 상세 조회/수정/삭제
+```
+
+댓글(comment)
+```
+api/v1/posts/comments/ 전체 댓글 조회
+api/v1/posts/{id}/comments/ 해당 게시물의 댓글 조회/등록
+api/v1/posts/{post_id}/comments/{comment_id}/ 게시물 상세 조회/수정/삭제
 ```
