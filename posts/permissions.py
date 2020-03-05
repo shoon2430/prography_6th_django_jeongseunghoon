@@ -41,9 +41,9 @@ class IsCommentWriterOrReadOnly(permissions.BasePermission):
             if jwt_user.is_anonymous:
                 return False
 
-            pk = request.parser_context["kwargs"]["pk"]
+            pk = request.parser_context["kwargs"]["comment_id"]
             comment = Comment.objects.get(id=pk)
-            print(comment.user, jwt_user)
+            # print(comment.user, jwt_user)
             return comment.user == jwt_user or jwt_user.authority == "manager"
 
         except Post.DoesNotExist:
